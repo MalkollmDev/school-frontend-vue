@@ -21,7 +21,7 @@
     methods: {
         getPosts(){
             axios
-            .get('http://api.malkollm.ru/LessonsContoller/')
+            .get('http://api.malkollm.ru/News/')
             .then((response) => {
                 console.log(response.data)
                 // this.posts = response.data

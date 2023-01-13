@@ -1,7 +1,7 @@
 <template>
   <header-component />
   <main-component />
-<!--  <test-component />-->
+  <test-component />
   <footer-component />
 </template>
 
