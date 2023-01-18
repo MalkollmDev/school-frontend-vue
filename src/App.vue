@@ -1,16 +1,18 @@
 <template>
-  <header-component />
-  <main-component />
-  <test-component />
-  <footer-component />
+  <h1>APP ROUTER</h1>
+<!--  <header-component />-->
+  <router-view></router-view>
+<!--  <main-component />-->
+<!--&lt;!&ndash;  <test-component />&ndash;&gt;-->
+<!--  <footer-component />-->
 </template>
 
 <script>
-import MainComponent from './components/BodyComponent.vue'
+// import MainComponent from './components/BodyComponent.vue'
 
 export default {
-  components: { MainComponent },
-  name: 'App'
+  // components: { MainComponent },
+  // name: 'App'
 }
 </script>
 

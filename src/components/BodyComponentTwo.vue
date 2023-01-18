@@ -1,7 +1,7 @@
 <template>
     <div class="grid gap-3">
       <div class="container">
-        <h3>Новости</h3>
+        <h3>TEST</h3>
         <div v-for="post in posts" :key="post.id">
           <div class="row">
             <div class="card p-2 g-col-6 m-3" style="width: 18rem;">

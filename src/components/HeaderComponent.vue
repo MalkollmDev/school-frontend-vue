@@ -11,6 +11,7 @@
               <p class="fs-2 fw-bold text-right">"абв Академия" <br>в Ханты-Мансийске</p>
             </div>
             <div class="col-4 col-sm-4">
+              <button type="button" @click="getPosts" class="btn btn-outline-primary">Обратиться к директору</button>
               <button type="button" class="btn btn-outline-primary" disabled>Обратиться к директору</button>
               <p></p>
               <p class="fs-5 fw-bold">+7 (952) 721-42-15</p>
@@ -58,9 +59,15 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {};
   },
+  methods: {
+    getPosts(){
+      this.$router.push('blog');
+    }
+  }
 };
 </script>
