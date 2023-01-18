@@ -6,6 +6,7 @@
 <!--          <img src="../../assets/logo.png" class="rounded mx-auto d-block img-fluid " alt="">-->
         </div>
         <div class="col-sm-9">
+
           <div class="row">
             <div class="col-8 col-sm-8">
               <p class="fs-2 fw-bold text-right">"абв Академия" <br>в Ханты-Мансийске</p>
@@ -19,9 +20,10 @@
             </div>
           </div>
         </div>
+        <MenuComponent />
       </div>
     </div>
-    <MenuComponent />
+
   </div>
 
 </template>

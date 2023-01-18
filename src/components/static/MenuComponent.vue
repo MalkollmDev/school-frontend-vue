@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container">
+  <div class="container">
+    <div>
       <ul class="nav justify-content-center">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Главная</a>
@@ -16,7 +16,7 @@
         </li>
       </ul>
     </div>
-    <div class="container">
+    <div>
       <ul class="nav justify-content-center">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Родителям</a>
@@ -33,7 +33,6 @@
       </ul>
     </div>
   </div>
-
 </template>
 
 <script>
