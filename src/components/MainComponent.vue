@@ -1,4 +1,5 @@
 <template>
+    <header-component />
     <div class="grid gap-3">
       <div class="container">
         <h3>Новости</h3>
@@ -17,12 +18,17 @@
         </div>
       </div>
     </div>
+  <footer-component />
 </template>
 
 <script>
 import axios from 'axios'
+import HeaderComponent from './static/HeaderComponent'
+import FooterComponent from "@/components/static/FooterComponent";
 
 export default {
+  components: {FooterComponent, HeaderComponent },
+  name: 'App',
   data() {
     return {
       posts: [],

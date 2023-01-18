@@ -1,13 +1,11 @@
 import {createRouter, createWebHashHistory} from "vue-router";
-import OneComponent from "../components/OneComponent.vue"
-import TwoComponent from "../components/TwoComponent.vue"
-import BodyComponent from "../components/BodyComponent.vue"
+import MainComponent from "../components/MainComponent.vue"
+import AddNewComponent from "@/components/AddNewComponent";
 
 export default createRouter({
     history: createWebHashHistory(),
     routes: [
-        { path: '/one', component:  OneComponent, alias: '/'},
-        { path: '/two', component:  TwoComponent},
-        { path: '/three', component:  BodyComponent},
+        { path: '/', component:  MainComponent, alias: '/'},
+        { path: '/addNew', component:  AddNewComponent},
     ]
 })
