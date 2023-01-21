@@ -6,7 +6,7 @@
           <a class="nav-link active" aria-current="page" href="#">Главная</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Сведения об образовательной деятельности</a>
+          <a class="nav-link" @click="toAbout">Сведения об образовательной деятельности</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Новости</a>
@@ -42,9 +42,9 @@ export default {
     return {};
   },
   methods: {
-    getPosts(){
-      this.$router.push('addNew');
-    }
+    toAbout(){
+      this.$router.push('about');
+    },
   }
 };
 </script>
