@@ -22,7 +22,7 @@
           <a class="nav-link active" aria-current="page" href="#">Родителям</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Расписание</a>
+          <a class="nav-link" @click="toSchedule">Расписание</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Школьное питание</a>
@@ -45,6 +45,9 @@ export default {
     toAbout(){
       this.$router.push('about');
     },
+    toSchedule(){
+      this.$router.push('schedule');
+    }
   }
 };
 </script>
