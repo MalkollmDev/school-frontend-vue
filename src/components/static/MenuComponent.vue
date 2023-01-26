@@ -5,7 +5,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Главная</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item pointer">
           <a class="nav-link" @click="toAbout">Сведения об образовательной деятельности</a>
         </li>
         <li class="nav-item">
@@ -21,7 +21,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Родителям</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item pointer">
           <a class="nav-link" @click="toSchedule">Расписание</a>
         </li>
         <li class="nav-item">
@@ -51,3 +51,9 @@ export default {
   }
 };
 </script>
+
+<style>
+  .pointer{
+    cursor: pointer;
+  }
+</style>
