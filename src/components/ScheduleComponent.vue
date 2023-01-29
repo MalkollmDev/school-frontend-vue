@@ -7,26 +7,24 @@
         <table class="table">
           <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-          </tr>
-          <tr colspan="2">
-            <td>
-
-            </td>
+            <th scope="col">Номер класса</th>
+            <th scope="col">Дисциплина</th>
+            <th scope="col">ФИО преподавателя</th>
+            <th scope="col">Электронная почта</th>
           </tr>
           </thead>
 
           <tbody v-for="lesson in lessons" :key="lesson.id">
           <tr colspan="2">
             <td>
-              {{lesson.numberGroup}}
+              <strong>{{lesson.numberGroup}} класс</strong>
             </td>
           </tr>
-          <tr>
-            <td>{{ `${lesson.lastName} ${lesson.firstName} ${lesson.middleName}` }}</td>
-            <td>{{ `${lesson.lastName} ${lesson.firstName} ${lesson.middleName}` }}</td>
-            <td>{{ lesson.email }}</td>
+          <tr colspan="2" v-for="value in lesson.lessonItems" :key="value.id">
+            <td>{{ `${value.lessonStart} - ${value.lessonEnd}` }}</td>
+            <td>{{ value.lessonName }}</td>
+            <td>{{ `${value.lastName} ${value.firstName} ${value.middleName}` }}</td>
+            <td>{{ value.email }}</td>
           </tr>
           </tbody>
         </table>
