@@ -1,38 +1,13 @@
 <template>
   <header-component/>
-  <div class="container text-center body-font">
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="box-title box-m">Новости</div>
-        <div class="w-25 p-3 float-left">
-          <div class="" v-for="event in events" :key="event.id"
-               style="border:1px solid #8c939d; border-radius: 10px;">
-            <div style="height: 4rem;">{{ event.title }}</div>
-            <div><img src="../assets/carousel/img_1.png" class="card-img-top mt-2" alt="..."></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 box-m">
-        <div class="card" style="max-width: max-content">
-          <div class="card-header">
-            Объявления
-          </div>
-          <ul class="list-group list-group-flush" style="text-align: left;">
-            <li class="list-group-item">19.12.2022 <a href="/">Режим работы хоккейного корта</a></li>
-            <li class="list-group-item">14.10.2022 <a href="/">Прием граждан по вопросам ПФДО</a></li>
-            <li class="list-group-item">10.03.2022 <a href="/">Информация об отмене занятий в актированные дни</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  <event-component />
 
   <div class="box-title box-mb">Услуги</div>
   <div class="container">
     <div class="accordion" id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          <button class="accordion-button box-services" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                   aria-expanded="true" aria-controls="collapseOne">
             Клуб юных химиков
           </button>
@@ -52,7 +27,7 @@
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button class="accordion-button collapsed box-services" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             Подготовка к школе
           </button>
@@ -73,7 +48,7 @@
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button class="accordion-button collapsed box-services" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             Продленка
           </button>
@@ -168,28 +143,14 @@
 </template>
 
 <script>
-import axios from 'axios'
 import HeaderComponent from './static/HeaderComponent'
+import EventComponent from './EventComponent'
 import FooterComponent from "@/components/static/FooterComponent";
 
 export default {
-  components: {FooterComponent, HeaderComponent},
+  components: {FooterComponent, EventComponent, HeaderComponent},
   name: 'App',
   data() {
-    return {
-      events: [],
-    }
-  },
-  mounted() {
-    axios
-        .get('http://api.malkollm.ru/Events/')
-        .then((response) => {
-          console.log(response.data)
-          this.events = response.data
-        })
-        .catch((error) => {
-          console.log(error)
-        })
   },
 }
 </script>
@@ -198,12 +159,21 @@ export default {
 .statistic-box {
   margin: 130px 0;
 }
+
 .box-m {
   margin: 60px 0;
 }
+
 .box-mb {
   margin-bottom: 58px;
 }
+
+.box-services {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+}
+
 .box-title {
   font-style: normal;
   font-weight: 600;
@@ -234,9 +204,5 @@ export default {
   font-size: 62px;
   line-height: 124%;
   color: #43bbcd;
-}
-
-.body-font {
-
 }
 </style>

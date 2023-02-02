@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div>
+  <div class="container box-mb">
+    <div class="box-menu">
       <ul class="nav justify-content-center">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Главная</a>
@@ -8,27 +8,21 @@
         <li class="nav-item pointer">
           <a class="nav-link" @click="toAbout">Сведения об образовательной деятельности</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Новости</a>
+        <li class="nav-item pointer">
+          <a class="nav-link active" @click="toParents">Родителям</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Объявления</a>
+        <li class="nav-item pointer">
+          <a class="nav-link" @click="toAchieve">Наши успехи</a>
         </li>
       </ul>
     </div>
-    <div>
+    <div class="box-menu">
       <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Родителям</a>
-        </li>
         <li class="nav-item pointer">
           <a class="nav-link" @click="toSchedule">Расписание</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Школьное питание</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Наши успехи</a>
+        <li class="nav-item pointer">
+          <a class="nav-link"  @click="toMeal">Школьное питание</a>
         </li>
       </ul>
     </div>
@@ -42,18 +36,31 @@ export default {
     return {};
   },
   methods: {
-    toAbout(){
+    toAbout() {
       this.$router.push('about');
     },
-    toSchedule(){
+    toSchedule() {
       this.$router.push('schedule');
+    },
+    toParents() {
+      this.$router.push('parents');
+    },
+    toMeal() {
+      this.$router.push('meal');
+    },
+    toAchieve() {
+      this.$router.push('achieve');
     }
   }
 };
 </script>
 
 <style>
-  .pointer{
-    cursor: pointer;
-  }
+.pointer {
+  cursor: pointer;
+}
+
+.box-menu {
+  font-size: 20px;
+}
 </style>
