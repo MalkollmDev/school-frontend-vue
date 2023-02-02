@@ -89,6 +89,10 @@ export default {
   margin: 130px 0;
 }
 
+.box-mt {
+  margin-top: 58px;
+}
+
 .box-mb {
   margin-bottom: 58px;
 }

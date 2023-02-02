@@ -13,12 +13,6 @@
     <div class="card">
       <a href="#"><img src="../assets/Mentoring.png" alt=""></a>
     </div>
-    <div class="card">
-      <a href="#"><img src="../assets/Mentoring.png" alt=""></a>
-    </div>
-    <div class="card">
-      <a href="#"><img src="../assets/Mentoring.png" alt=""></a>
-    </div>
   </div>
 </template>
 <script>

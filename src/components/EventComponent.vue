@@ -12,7 +12,7 @@
             </div>
           </div>
         </div>
-        <div class="box-title box-mb">Услуги</div>
+        <div class="box-title box-mb box-mt">Услуги</div>
         <div class="container">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -104,7 +104,7 @@ export default {
   },
   mounted() {
     axios
-        .get('https://localhost:7276/Events/GetPartEvents?count=8')
+        .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
         .then((response) => {
           console.log(response.data)
           this.events = response.data

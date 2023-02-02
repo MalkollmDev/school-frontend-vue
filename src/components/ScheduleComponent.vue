@@ -50,7 +50,7 @@ export default {
   },
   mounted() {
     axios
-        .get('https://localhost:7276/Lessons/')
+        .get('http://api.malkollm.ru/Lessons/')
         .then((response) => {
           console.log(response.data)
           this.lessons = response.data

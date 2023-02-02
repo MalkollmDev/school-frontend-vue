@@ -28,7 +28,7 @@
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-danger">❌ Переполненные классы в школах;</li>
                   <li class="list-group-item list-group-item-danger">❌ Непонятные программы обучения;</li>
-                  <li class="list-group-item list-group-item-danger">❌ Непонятные программы обучения;</li>
+                  <li class="list-group-item list-group-item-danger">❌ Враждебность и буллинг в школе;</li>
                   <li class="list-group-item list-group-item-danger">❌ Нет контакта ученика с учителем;</li>
                 </ul>
               </div>
@@ -156,9 +156,9 @@
               <div class="col-md-4">
                 <img :src="require('/src/assets/about/child2.png')" class="img-fluid rounded-start" alt="awdaw">
               </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
+  </div>
       </div>
       <div class="row">
         <div class="col">
