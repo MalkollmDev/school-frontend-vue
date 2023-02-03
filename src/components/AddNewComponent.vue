@@ -82,10 +82,8 @@ export default {
 
     function handleSubmit(){
       const formData = new FormData();
-      formData.append('title', data.title);
-      formData.append('text', data.text);
-      formData.append('isPublished', data.isPublished);
-      formData.append('files', data.files);
+      formData.append('EventId', data.title);
+      formData.append('File', data.files);
 
       axios
           .post('http://api.malkollm.ru/News/', formData)
