@@ -6,6 +6,7 @@ import ScheduleComponent from "@/components/ScheduleComponent";
 import ParentsComponent from "@/components/static/ParentsComponent";
 import MealComponent from "@/components/static/MealComponent";
 import AchieveComponent from "@/components/static/AchieveComponent";
+import AdminComponent from "@/components/AdminComponent";
 
 export default createRouter({
     history: createWebHashHistory(),
@@ -17,5 +18,6 @@ export default createRouter({
         { path: '/parents', component:  ParentsComponent},
         { path: '/meal', component:  MealComponent},
         { path: '/achieve', component:  AchieveComponent},
+        { path: '/admin', component:  AdminComponent},
     ]
 })

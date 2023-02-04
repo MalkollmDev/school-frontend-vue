@@ -104,8 +104,8 @@ export default {
   },
   mounted() {
     axios
-        // .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
-        .get('https://localhost:7276/Events')
+        .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
+        // .get('https://localhost:7276/Events')
         .then((response) => {
           console.log(response.data)
           this.events = response.data
