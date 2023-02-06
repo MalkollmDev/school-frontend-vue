@@ -42,7 +42,7 @@ import FooterComponent from "@/components/static/FooterComponent";
 
 export default {
   components: {FooterComponent, HeaderComponent},
-  name: 'App',
+  name: 'ScheduleComponent',
   data() {
     return {
       lessons: [],

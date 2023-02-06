@@ -1,6 +1,21 @@
 <template>
-  <header-component/>
-  <h3 class="m">Добавить новость</h3>
+  <h3 class="m">Панель администратора</h3>
+  <div class="container w-50 p-3">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" @click="toAddEvent">Добавить новость</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" @click="toAddSchedule">Добавить расписание</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+  </div>
   <div class="container w-25 p-3">
     <form @submit.prevent="handleSubmit">
       <div class="form-floating mb-3">
@@ -36,25 +51,30 @@
       </div>
 
       <button type="submit" class="btn btn-primary">Сохранить</button>
-<!--      <p>{{ JSON.stringify(data, null, 2) }}</p>-->
+      <!--      <p>{{ JSON.stringify(data, null, 2) }}</p>-->
     </form>
   </div>
-  <footer-component/>
 </template>
 
 <script>
-import HeaderComponent from './static/HeaderComponent'
-import FooterComponent from "@/components/static/FooterComponent";
 import {reactive} from "vue";
 import axios from "axios";
 
 export default {
-  components: {FooterComponent, HeaderComponent},
-  name: 'AddNewComponent',
-  setup(){
+  components: {},
+  name: 'AdminComponent',
+  methods: {
+    toAddEvent() {
+      this.$router.push('addEvent');
+    },
+    toAddSchedule() {
+      this.$router.push('addSchedule');
+    },
+  },
+  setup() {
     const data = reactive({title: "", text: "", isPublished: false, files: []})
 
-    function triggerFileInputDialog(){
+    function triggerFileInputDialog() {
       document.getElementById('image_upload')?.click();
     }
 
@@ -80,7 +100,7 @@ export default {
       data.files.push(...result)
     }
 
-    function handleSubmit(){
+    function handleSubmit() {
       const formData = new FormData();
       formData.append('EventId', data.title);
       formData.append('File', data.files);
@@ -95,7 +115,7 @@ export default {
           })
     }
 
-    return { triggerFileInputDialog, handleFileInput, data, handleSubmit }
+    return {triggerFileInputDialog, handleFileInput, data, handleSubmit}
   }
 }
 </script>

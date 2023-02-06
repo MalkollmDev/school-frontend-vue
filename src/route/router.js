@@ -6,7 +6,9 @@ import ScheduleComponent from "@/components/ScheduleComponent";
 import ParentsComponent from "@/components/static/ParentsComponent";
 import MealComponent from "@/components/static/MealComponent";
 import AchieveComponent from "@/components/static/AchieveComponent";
-import AdminComponent from "@/components/AdminComponent";
+import AdminComponent from "@/components/admin/AdminComponent";
+import AddEventSectionComponent from "@/components/admin/AddEventSectionComponent";
+import AddScheduleSectionComponent from "@/components/admin/AddScheduleSectionComponent";
 
 export default createRouter({
     history: createWebHashHistory(),
@@ -19,5 +21,7 @@ export default createRouter({
         { path: '/meal', component:  MealComponent},
         { path: '/achieve', component:  AchieveComponent},
         { path: '/admin', component:  AdminComponent},
+        { path: '/addEvent', component:  AddEventSectionComponent},
+        { path: '/addSchedule', component:  AddScheduleSectionComponent},
     ]
 })
