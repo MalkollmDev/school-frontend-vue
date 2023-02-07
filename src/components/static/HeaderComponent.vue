@@ -3,7 +3,7 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-sm-3">
-          <img src="../../assets/logo.png" class="rounded mx-auto d-block img-fluid box-img" alt="">
+          <a href="#"><img src="../../assets/logo.png" class="rounded mx-auto d-block img-fluid box-img" alt=""></a>
         </div>
         <div class="col-sm-9">
 
