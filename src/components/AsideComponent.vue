@@ -5,13 +5,16 @@
         Объявления
       </div>
       <ul class="list-group list-group-flush" style="text-align: left;">
-        <li class="list-group-item">19.12.2022 <a href="/">Режим работы хоккейного корта</a></li>
-        <li class="list-group-item">14.10.2022 <a href="/">Прием граждан по вопросам ПФДО</a></li>
-        <li class="list-group-item">10.03.2022 <a href="/">Информация об отмене занятий в актированные дни</a></li>
+        <li class="list-group-item">19.03.2023 <a href="/">Открытая встреча</a></li>
+        <li class="list-group-item">14.03.2023 <a href="/">Экскурсия в пекарню</a></li>
+        <li class="list-group-item">10.03.2023 <a href="/">Анонс мероприятия "Квартирник"</a></li>
       </ul>
     </div>
     <div class="card">
       <a href="#"><img src="../assets/Mentoring.png" alt=""></a>
+    </div>
+    <div class="card">
+      <a href="https://vk.com/abvacademy"><img src="../assets/vk.png" alt=""></a>
     </div>
   </div>
 </template>
@@ -19,7 +22,7 @@
 
 export default {
   components: {},
-  name: 'EventComponent',
+  name: 'AsideComponent',
   data() {
     return {}
   }

@@ -32,20 +32,18 @@
               <div class="col-12 mb-4">
                 <label class="" for="inlineFormSelectPref">Выберите предмет</label>
                 <select class="form-select" id="inlineFormSelectPref" v-model="selectedLesson">
-                  <option selected>Выберите предмет</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option selected v-for="lesson in lessons" :key="lesson.id">
+                    {{ lesson.name }}
+                  </option>
                 </select>
               </div>
               <!--      Выбор преподавателя-->
               <div class="col-12 mb-4">
                 <label class="" for="inlineFormSelectPref">Выберите преподавателя</label>
                 <select class="form-select" id="inlineFormSelectPref" v-model="selectedTeacher">
-                  <option selected>Выберите преподавателя</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option v-for="teacher in teachers" :key="teacher.id">
+                    {{ `${teacher.lastName} ${teacher.firstName} ${teacher.middleName}` }}
+                  </option>
                 </select>
               </div>
               <!--      Выбор времени занятия-->
@@ -84,7 +82,9 @@ export default {
       selectedClass: "",
       lessonTimes: [],
       selectedTime: "",
+      lessons: [],
       selectedLesson: "",
+      teachers: [],
       selectedTeacher: "",
     }
   },
@@ -98,15 +98,33 @@ export default {
         .catch((error) => {
           console.log(error)
         })
-        axios
-            .get('http://api.malkollm.ru/LessonTimes/')
-            .then((response) => {
-              console.log(response.data)
-              this.lessonTimes = response.data
-            })
-            .catch((error) => {
-              console.log(error)
-            })
+    axios
+        .get('http://api.malkollm.ru/Lessons/')
+        .then((response) => {
+          console.log(response.data)
+          this.lessons = response.data
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    axios
+        .get('http://api.malkollm.ru/Teachers/')
+        .then((response) => {
+          console.log(response.data)
+          this.teachers = response.data
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    axios
+        .get('http://api.malkollm.ru/LessonTimes/')
+        .then((response) => {
+          console.log(response.data)
+          this.lessonTimes = response.data
+        })
+        .catch((error) => {
+          console.log(error)
+        })
   },
   setup() {
     const data = reactive({title: "", text: "", isPublished: false, files: []})
