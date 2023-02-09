@@ -1,8 +1,8 @@
 <template>
   <header-component/>
   <div class="container">
-    <h3>Здесь будет информация по питанию</h3>
-    <img src="../../assets/inDevelopment.png" alt="">
+    <h3>Структура и органы управления организацией</h3>
+    <img src="../../assets/orgStructure.png" alt="">
   </div>
   <footer-component/>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <header-component/>
   <div class="container">
+    <h3>Документы</h3>
     <img src="../../assets/inDevelopment.png" alt="">
   </div>
   <footer-component/>
@@ -11,7 +12,7 @@ import HeaderComponent from "@/components/static/HeaderComponent";
 
 export default {
   components: {FooterComponent, HeaderComponent},
-  name: 'App',
+  name: 'ETextBooksComponent',
   data() {
     return {}
   }
