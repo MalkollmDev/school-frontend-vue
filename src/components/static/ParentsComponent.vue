@@ -1,6 +1,7 @@
 <template>
   <header-component/>
   <div class="container">
+    <h3>Здесь будет информация для родителей</h3>
     <img src="../../assets/inDevelopment.png" alt="">
   </div>
   <footer-component/>

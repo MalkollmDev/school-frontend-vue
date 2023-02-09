@@ -4,7 +4,7 @@
     <!--    Описание директора-->
     <div class="row mb-3">
       <div class="col-2"></div>
-      <div class="card mb-3 col-8" style="max-width: max-content;">
+      <div class="card mb-3 col-8 p-3" style="max-width: max-content;">
         <div class="row g-0">
           <div class="col-md-4">
             <img :src="require('/src/assets/director.png')" class="img-fluid rounded-start" alt="awdaw">
@@ -124,7 +124,7 @@
       <h1 class="mb-4">Кому подойдет наша школа?</h1>
       <div class="row">
         <div class="col">
-          <div class="card mb-3" style="max-width: max-content;">
+          <div class="card mb-3 p-3" style="max-width: max-content;">
             <div class="row g-0">
               <div class="col-md-4">
                 <img :src="require('/src/assets/about/child1.png')" class="img-fluid rounded-start" alt="awdaw">
@@ -143,7 +143,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="card mb-3" style="max-width: max-content;">
+          <div class="card mb-3 p-3" style="max-width: max-content;">
             <div class="row g-0">
               <div class="col-md-8">
                 <div class="card-body">
@@ -162,7 +162,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="card mb-3" style="max-width: max-content;">
+          <div class="card mb-3 p-3" style="max-width: max-content;">
             <div class="row g-0">
               <div class="col-md-4">
                 <img :src="require('/src/assets/about/child3.png')" class="img-fluid rounded-start" alt="awdaw">
@@ -180,7 +180,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="card mb-3" style="max-width: max-content;">
+          <div class="card mb-3 p-3" style="max-width: max-content;">
             <div class="row g-0">
               <div class="col-md-8">
                 <div class="card-body">

@@ -5,14 +5,53 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Главная</a>
         </li>
-        <li class="nav-item pointer">
-          <a class="nav-link" @click="toAbout">Сведения об образовательной деятельности</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Сведения об образовательной деятельности
+          </a>
+          <ul class="dropdown-menu">
+            <li class="pointer">
+              <a class="dropdown-item" @click="toAbout">Основные сведения</a>
+            </li>
+            <li class="pointer">
+              <a class="dropdown-item" @click="toOrgStructure">Структура и органы управления организацией</a>
+            </li>
+            <li class="pointer">
+              <a class="dropdown-item" @click="toDocuments">Документы</a>
+            </li>
+            <li class="pointer">
+              <a class="dropdown-item" @click="toContacts">Контакты</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ученикам
+          </a>
+          <ul class="dropdown-menu">
+            <li class="pointer">
+              <a class="dropdown-item" @click="toETextbooks">Электронные учебники</a>
+            </li>
+            <li class="pointer">
+              <a class="dropdown-item" @click="toOlympiad">Олимпиады и конкурсы</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item pointer">
           <a class="nav-link active" @click="toParents">Родителям</a>
         </li>
-        <li class="nav-item pointer">
-          <a class="nav-link" @click="toAchieve">Наши успехи</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Педагогам
+          </a>
+          <ul class="dropdown-menu">
+            <li class="pointer">
+              <a class="dropdown-item" @click="toProjects">Программы и проекты</a>
+            </li>
+            <li class="pointer">
+              <a class="dropdown-item" @click="toPublications">Публикации</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -22,7 +61,7 @@
           <a class="nav-link" @click="toSchedule">Расписание</a>
         </li>
         <li class="nav-item pointer">
-          <a class="nav-link"  @click="toMeal">Школьное питание</a>
+          <a class="nav-link" @click="toMeal">Школьное питание</a>
         </li>
       </ul>
     </div>
@@ -48,9 +87,27 @@ export default {
     toMeal() {
       this.$router.push('meal');
     },
-    toAchieve() {
-      this.$router.push('achieve');
-    }
+    toOrgStructure() {
+      this.$router.push('orgStructure');
+    },
+    toETextbooks() {
+      this.$router.push('textbooks');
+    },
+    toOlympiad() {
+      this.$router.push('olympiad');
+    },
+    toProjects() {
+      this.$router.push('projects');
+    },
+    toPublications() {
+      this.$router.push('publications');
+    },
+    toDocuments() {
+      this.$router.push('documents');
+    },
+    toContacts() {
+      this.$router.push('contacts');
+    },
   }
 };
 </script>

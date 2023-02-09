@@ -5,10 +5,10 @@
         <div class="container" style="max-width: 850px">
           <div class="box-title box-mb">Новости</div>
           <div class="row" style="display: flex; flex-flow: row wrap; gap: 2px; justify-content: space-between;">
-            <div class="col" v-for="event in events" :key="event.id"
+            <div class="col p-2" v-for="event in events" :key="event.id"
                  style="border:1px solid #8c939d; border-radius: 10px; flex: 0 0 22%; margin-bottom: 10px;">
               <div style="height: 4rem;">{{ event.title }}</div>
-              <div><img src="../assets/carousel/img_1.png" class="card-img-top mt-2" alt="..."></div>
+              <div><img src="../assets/testing.png" class="card-img-top mt-2" alt="..."></div>
             </div>
           </div>
         </div>
@@ -136,7 +136,8 @@ export default {
   },
   mounted() {
     axios
-        .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
+        // .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
+        .get('http://api.malkollm.ru/Events')
         // .get('https://localhost:7276/Events')
         .then((response) => {
           console.log(response.data)
