@@ -1,98 +1,76 @@
 <template>
-  <admin-tab-component />
+  <admin-tab-component/>
   <div class="container w-25 p-3">
     <form @submit.prevent="handleSubmit">
       <div class="form-floating mb-3">
-        <input v-model="data.title" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input v-model="title" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Заголовок новости</label>
       </div>
       <div class="form-floating">
-        <textarea v-model="data.text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+        <textarea v-model="text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
                   style="height: 100px"></textarea>
         <label for="floatingTextarea2">Описание новости</label>
       </div>
+      <div class="mb-3">
+        <input class="form-control" accept="image/*" id="files" ref="files" type="file" @change="handleFileInput($event.target.files)"
+               multiple>
+      </div>
       <div class="form-check mb-5">
-        <input v-model="data.isPublished" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <input v-model="isPublished" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Публиковать новость?
         </label>
       </div>
-
-      <div
-          class="upload upload-picture-card"
-          @click="triggerFileInputDialog"
-      >
-        <span style="display: none">
-      <input
-          id="image_upload"
-          accept="image/*"
-          multiple
-          name="image_upload"
-          type="file"
-          @change="handleFileInput"
-      >
-    </span>
-      </div>
-
       <button type="submit" class="btn btn-primary">Сохранить</button>
-      <!--      <p>{{ JSON.stringify(data, null, 2) }}</p>-->
+<!--      <p>{{ JSON.stringify(data, null, 2) }}</p>-->
     </form>
   </div>
 </template>
 
 <script>
-import {reactive} from "vue";
+// import {reactive} from "vue";
 import axios from "axios";
 import AdminTabComponent from "@/components/admin/AdminTabComponent";
 
 export default {
   components: {AdminTabComponent},
   name: 'AdminComponent',
-  setup() {
-    const data = reactive({title: "", text: "", isPublished: false, files: []})
-
-    function triggerFileInputDialog() {
-      document.getElementById('image_upload')?.click();
+  data() {
+    return {
+      title: "",
+      text: "",
+      isPublished: true,
+      files: new FormData()
     }
+  },
+  methods: {
+    handleFileInput(fileList) {
+      this.files.append("title", this.title)
+      this.files.append("content", this.text)
+      this.files.append("isPublished", this.isPublished)
 
-    function handleFileInput(e) {
-      const result = [];
-      console.log(e)
-      const {files} = e.target
-
-      if (!files || !files?.length) {
-        return;
+      for (let i = 0; i < fileList.length; i += 1) {
+        this.files.append("file", fileList[i], fileList[i].name)
       }
+    },
 
-      for (let i = 0; i < files.length; i += 1) {
-        const name = files[i].name.split('.');
-
-        result.push({
-          name: name[0],
-          extension: name[1],
-          file: files[i],
-        });
-      }
-
-      data.files.push(...result)
-    }
-
-    function handleSubmit() {
-      const formData = new FormData();
-      formData.append('EventId', data.title);
-      formData.append('File', data.files);
-
+    handleSubmit() {
       axios
-          .post('http://api.malkollm.ru/News/', formData)
-          .then((response) => {
-            console.log(response.data)
-          })
+          .post('http://api.malkollm.ru/Events/', this.files,
+              {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
+              }
+          ).then((response) => {
+        console.log(response.data)
+        console.log('SUCCESS!!')
+      })
           .catch((error) => {
             console.log(error)
+            console.log('FAILURE!!')
           })
     }
-
-    return {triggerFileInputDialog, handleFileInput, data, handleSubmit}
   }
 }
 </script>
