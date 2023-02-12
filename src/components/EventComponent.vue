@@ -1,5 +1,6 @@
 <template>
   <div class="container text-center body-font box-mb">
+    <a :href="imageUrl">Получить файл</a>
     <div class="row">
       <div class="col-8">
         <div class="container" style="max-width: 850px">
@@ -132,6 +133,8 @@ export default {
   data() {
     return {
       events: [],
+      temp: [],
+      imageUrl: ""
     }
   },
   mounted() {
@@ -142,6 +145,16 @@ export default {
         .then((response) => {
           console.log(response.data)
           this.events = response.data
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+
+    axios
+        .get('https://localhost:7276/File/GetImageUrl/A17513E4-AFCE-449A-C5A7-08DB0C4CB7F1')
+        .then((response) => {
+          console.log(response.data)
+          this.imageUrl = response.data
         })
         .catch((error) => {
           console.log(error)
