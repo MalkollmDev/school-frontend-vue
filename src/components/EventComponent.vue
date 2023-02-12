@@ -1,6 +1,5 @@
 <template>
   <div class="container text-center body-font box-mb">
-    <a :href="imageUrl">Получить файл</a>
     <div class="row">
       <div class="col-8">
         <div class="container" style="max-width: 850px">
@@ -9,7 +8,7 @@
             <div class="col p-2" v-for="event in events" :key="event.id"
                  style="border:1px solid #8c939d; border-radius: 10px; flex: 0 0 22%; margin-bottom: 10px;">
               <div style="height: 4rem;">{{ event.title }}</div>
-              <div><img :src="event.files[0]?.downloadUrl" class="card-img-top mt-2" alt="..."></div>
+              <div><img src="../assets/testing.png" class="card-img-top mt-2" alt="..."></div>
             </div>
           </div>
         </div>
@@ -139,8 +138,8 @@ export default {
   },
   mounted() {
     axios
-        // .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
-        .get('http://api.malkollm.ru/Events')
+        .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
+        // .get('http://api.malkollm.ru/Events')
         // .get('https://localhost:7276/Events')
         .then((response) => {
           console.log(response.data)
