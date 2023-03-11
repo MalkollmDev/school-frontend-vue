@@ -1,0 +1,106 @@
+<template>
+  <admin-tab-component/>
+  <div class="container w-25 p-3">
+    <form @submit.prevent="handleSubmit">
+      <div class="form-floating mb-3">
+        <input v-model="title" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Заголовок новости</label>
+      </div>
+      <div class="form-floating">
+        <textarea v-model="text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Описание новости</label>
+      </div>
+      <div class="mb-3">
+        <input class="form-control" accept="image/*" id="files" ref="files" type="file" @change="handleFileInput($event.target.files)"
+               multiple>
+      </div>
+      <div class="form-check mb-5">
+        <input v-model="isPublished" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Публиковать новость?
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Сохранить</button>
+<!--      <p>{{ JSON.stringify(data, null, 2) }}</p>-->
+    </form>
+  </div>
+</template>
+
+<script>
+// import {reactive} from "vue";
+import axios from "axios";
+import AdminTabComponent from "@/components/admin/AdminTabComponent";
+
+export default {
+  components: {AdminTabComponent},
+  name: 'AddDocumentsSectionComponent',
+  data() {
+    return {
+      title: "",
+      text: "",
+      isPublished: true,
+      files: new FormData()
+    }
+  },
+  methods: {
+    handleFileInput(fileList) {
+      this.files.append("title", this.title)
+      this.files.append("content", this.text)
+      this.files.append("isPublished", this.isPublished)
+
+      for (let i = 0; i < fileList.length; i += 1) {
+        this.files.append("file", fileList[i], fileList[i].name)
+      }
+    },
+
+    handleSubmit() {
+      axios
+          .post('http://api.malkollm.ru/Events/', this.files,
+              {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
+              }
+          ).then((response) => {
+        console.log(response.data)
+        console.log('SUCCESS!!')
+      })
+          .catch((error) => {
+            console.log(error)
+            console.log('FAILURE!!')
+          })
+    }
+  }
+}
+</script>
+<style scoped>
+.upload {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  outline: 0;
+}
+
+.upload-picture-card {
+  background-color: #fbfdff;
+  border: 1px dashed #c0ccda;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 162px;
+  height: 162px;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.upload-picture-card:hover {
+  border-color: #409eff;
+  color: #409eff;
+}
+
+.upload-picture-card i {
+  margin-top: 66px;
+  font-size: 30px;
+  color: #8c939d;
+}
+</style>

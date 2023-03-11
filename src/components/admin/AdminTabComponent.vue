@@ -3,16 +3,16 @@
   <div class="container w-50 p-3">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" @click="toAddEvent">Добавить новость</a>
+        <a class="nav-link active pointer" aria-current="page" @click="toAddEvent">Добавить новость</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" @click="toAddSchedule">Добавить расписание</a>
+        <a class="nav-link pointer" @click="toAddSchedule">Добавить расписание</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link pointer" @click="toAddDocuments">Добавить документы в разделы</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
+        <a class="nav-link pointer disabled">Disabled</a>
       </li>
     </ul>
   </div>
@@ -29,6 +29,9 @@ export default {
     },
     toAddSchedule() {
       this.$router.push('addSchedule');
+    },
+    toAddDocuments() {
+      this.$router.push('addDocuments');
     },
   },
 }

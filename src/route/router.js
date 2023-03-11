@@ -15,6 +15,7 @@ import ProjectsComponent from "@/components/submenu/ProjectsComponent";
 import PublicationsComponent from "@/components/submenu/PublicationsComponent";
 import DocumentsComponent from "@/components/submenu/DocumentsComponent";
 import ContactsComponent from "@/components/submenu/ContactsComponent";
+import AddDocumentsSectionComponent from "@/components/admin/AddDocumentsSectionComponent";
 
 export default createRouter({
     history: createWebHashHistory(),
@@ -35,5 +36,6 @@ export default createRouter({
         { path: '/publications', component:  PublicationsComponent},
         { path: '/documents', component:  DocumentsComponent},
         { path: '/contacts', component:  ContactsComponent},
+        { path: '/addDocuments', component:  AddDocumentsSectionComponent},
     ]
 })
