@@ -139,8 +139,8 @@ export default {
   },
   mounted() {
     axios
-        .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
-        // .get('https://localhost:7276/Events/GetPartEvents?count=8')
+        // .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
+        .get('https://localhost:7276/Events/GetPartEvents?count=8')
         .then((response) => {
           console.log(response.data)
           this.events = response.data
@@ -152,7 +152,6 @@ export default {
   methods: {
     toDescription(id) {
       this.$router.push({ path: 'eventDescription', query: { id: id } })
-      // this.$router.push({name: 'eventDescription', params: {id: id}})
     },
   }
 }
