@@ -16,6 +16,7 @@ import PublicationsComponent from "@/components/submenu/PublicationsComponent";
 import DocumentsComponent from "@/components/submenu/DocumentsComponent";
 import ContactsComponent from "@/components/submenu/ContactsComponent";
 import AddDocumentsSectionComponent from "@/components/admin/AddDocumentsSectionComponent";
+import EventDescriptionComponent from "@/components/EventDescriptionComponent";
 
 export default createRouter({
     history: createWebHashHistory(),
@@ -37,5 +38,6 @@ export default createRouter({
         { path: '/documents', component:  DocumentsComponent},
         { path: '/contacts', component:  ContactsComponent},
         { path: '/addDocuments', component:  AddDocumentsSectionComponent},
+        { path: '/eventDescription', component:  EventDescriptionComponent},
     ]
 })

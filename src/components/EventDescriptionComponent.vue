@@ -1,26 +1,30 @@
 <template>
+  <header-component/>
+
   <div class="container text-center body-font box-mb">
     <div class="row">
       <div class="container" style="max-width: 850px">
-        <div class="box-title box-mb">Новости</div>
-        <div class="row" style="display: flex; flex-flow: row wrap; gap: 2px; justify-content: space-between;">
-          <div class="col" v-for="event in events" :key="event.id" style="border:1px solid #8c939d; border-radius: 10px; flex: 0 0 22%; margin-bottom: 10px;">
-            <div style="height: 4rem;">{{ event.title }}</div>
-            <div><img src="../assets/carousel/img_1.png" class="card-img-top mt-2" alt="..."></div>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img :src="imageUrl" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title fs-1">{{ title }}</h5>
+                <p class="card-text">{{ content }}</p>
+                <p class="card-text"><small class="text-muted">{{ datePublished }}</small></p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card" style="max-width: max-content">
-          <div class="card-header">
-            Объявления
-          </div>
-          <ul class="list-group list-group-flush" style="text-align: left;">
-            <li class="list-group-item">19.12.2022 <a href="/">Режим работы хоккейного корта</a></li>
-            <li class="list-group-item">14.10.2022 <a href="/">Прием граждан по вопросам ПФДО</a></li>
-            <li class="list-group-item">10.03.2022 <a href="/">Информация об отмене занятий в актированные дни</a></li>
-          </ul>
-        </div>
+
+
+
+<!--        <div class="box-title box-mb">{{ title }}</div>-->
+<!--        <div class="box-title box-mb">{{ content }}</div>-->
+<!--        <div class="box-title box-mb">{{ datePublished }}</div>-->
+<!--        <div><img :src="imageUrl" class="card-img-top mt-2" alt="..."></div>-->
       </div>
     </div>
   </div>
@@ -28,25 +32,47 @@
 
 <script>
 import axios from 'axios'
+import moment from 'moment';
+import HeaderComponent from "@/components/static/HeaderComponent";
 
 export default {
-  components: {},
-  name: 'App',
+  components: {HeaderComponent},
+  name: 'EventDescriptionComponent',
   data() {
     return {
-      events: [],
+      title: "",
+      content: "",
+      datePublished: "",
+      imageUrl: "",
+      id: this.$route.query.id
     }
   },
   mounted() {
+    console.log()
     axios
-        .get('http://api.malkollm.ru/Events/')
+        .get('http://api.malkollm.ru/Events/'+this.id)
         .then((response) => {
           console.log(response.data)
-          this.events = response.data
+          this.title = response.data.title
+          this.content = response.data.content
+          this.datePublished = this.format_date(response.data.published)
+          this.imageUrl = response.data.files[0].downloadUrl
         })
         .catch((error) => {
           console.log(error)
         })
   },
+  methods: {
+    format_date(value){
+      if (value) {
+        return moment(String(value)).format('DD-MM-YYYY hh:mm')
+      }
+    },
+    // getId(){
+    //   return this.$router.params.id
+    // }
+  }
 }
 </script>
+
+

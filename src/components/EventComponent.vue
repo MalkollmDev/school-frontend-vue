@@ -7,8 +7,10 @@
           <div class="row" style="display: flex; flex-flow: row wrap; gap: 2px; justify-content: space-between;">
             <div class="col p-2" v-for="event in events" :key="event.id"
                  style="border:1px solid #8c939d; border-radius: 10px; flex: 0 0 22%; margin-bottom: 10px;">
-              <div style="height: 4rem;">{{ event.title }}</div>
-              <div><img :src="event.files[0].downloadUrl" class="card-img-top mt-2" alt="..."></div>
+              <a class="pointer" @click="toDescription(event.id)">
+                <div style="height: 4rem;">{{ event.title }}</div>
+                <div><img :src="event.files[0].downloadUrl" class="card-img-top mt-2" alt="..."></div>
+              </a>
             </div>
           </div>
         </div>
@@ -138,6 +140,7 @@ export default {
   mounted() {
     axios
         .get('http://api.malkollm.ru/Events/GetPartEvents?count=8')
+        // .get('https://localhost:7276/Events/GetPartEvents?count=8')
         .then((response) => {
           console.log(response.data)
           this.events = response.data
@@ -146,5 +149,17 @@ export default {
           console.log(error)
         })
   },
+  methods: {
+    toDescription(id) {
+      this.$router.push({ path: 'eventDescription', query: { id: id } })
+      // this.$router.push({name: 'eventDescription', params: {id: id}})
+    },
+  }
 }
 </script>
+
+<style>
+.pointer {
+  cursor: pointer;
+}
+</style>
