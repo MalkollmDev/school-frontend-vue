@@ -63,6 +63,9 @@
         <li class="nav-item pointer">
           <a class="nav-link" @click="toMeal">Школьное питание</a>
         </li>
+        <li>
+          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Подать заявку</button>
+        </li>
       </ul>
     </div>
   </div>

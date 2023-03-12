@@ -12,8 +12,9 @@
               <p class="fs-2 fw-bold text-right">"абв Академия" <br>в Ханты-Мансийске</p>
             </div>
             <div class="col-4 col-sm-4">
-              <!--              <button type="button" @click="getPosts" class="btn btn-outline-primary">Добавить новость</button>-->
-              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Обратиться к директору</button>
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal">Обратиться к директору
+              </button>
               <p></p>
               <p class="fs-5 fw-bold">+7 (952) 721-42-15</p>
               <p class="fs-5 fw-bold"><a href="academy.hm@yandex.ru">academy.hm@yandex.ru</a></p>
@@ -30,30 +31,34 @@
               <h1 class="modal-title fs-5" id="exampleModalLabel">Обратиться к директору</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="input-group mb-3 mt-3">
-              <span class="input-group-text">ФИО</span>
-              <input type="text" aria-label="First name" class="form-control" placeholder="Фамилия">
-              <input type="text" aria-label="Last name" class="form-control" placeholder="Имя">
-              <input type="text" aria-label="Last name" class="form-control" placeholder="Отчество">
-            </div>
-            <div class="input-group flex-nowrap mb-3">
-              <span class="input-group-text" id="addon-wrapping">Тел.</span>
-              <input type="text" class="form-control" placeholder="Номер телефона" aria-label="Username" aria-describedby="addon-wrapping">
-            </div>
-            <div class="input-group">
-              <span class="input-group-text">Текст</span>
-              <textarea class="form-control" aria-label="With textarea" placeholder="Введите текст обращения..."></textarea>
-            </div>
-            <div class="modal-body mb-3">
-              <div class="input-group">
-                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-<!--                <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button>-->
+            <form @submit.prevent="handleSubmit">
+              <div class="input-group mb-3 mt-3">
+                <span class="input-group-text">ФИО</span>
+                <input v-model="data.lName" type="text" aria-label="Last name" class="form-control" placeholder="Фамилия">
+                <input v-model="data.fName" type="text" aria-label="First name" class="form-control" placeholder="Имя">
+                <input v-model="data.mName" type="text" aria-label="Middle name" class="form-control" placeholder="Отчество">
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-              <button type="button" class="btn btn-primary">Отправить</button>
-            </div>
+              <!--            TODO Накинуть маску для телефона-->
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text" id="addon-wrapping">Тел.</span>
+                <input v-model="data.phone" type="text" data-mask="999-999-9999?9" class="form-control" placeholder="Номер телефона" aria-label="Username"
+                       aria-describedby="addon-wrapping">
+              </div>
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text" id="addon-wrapping">Email</span>
+                <input v-model="data.email" type="text" class="form-control" placeholder="Электронная почта" aria-label="Username"
+                       aria-describedby="addon-wrapping">
+              </div>
+              <div class="input-group">
+                <span class="input-group-text">Текст</span>
+                <textarea v-model="data.text" class="form-control" aria-label="With textarea"
+                          placeholder="Введите текст обращения..."></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -65,17 +70,41 @@
 
 <script>
 import MenuComponent from './MenuComponent'
+import axios from "axios";
+import {reactive} from "vue";
 
 export default {
   components: {MenuComponent},
-  name: 'App',
+  name: 'HeaderComponent',
   data() {
     return {};
   },
-  methods: {
-    getPosts() {
-      this.$router.push('addNew');
+  setup() {
+    const data = reactive({lName: "", fName: "", mName: "", phone: "", text: "", email: ""})
+
+    function handleSubmit() {
+      const formData = new FormData();
+      formData.append('lastName', data.lName);
+      formData.append('firstName', data.fName);
+      formData.append('middleName', data.mName);
+      formData.append('phone', data.phone);
+      formData.append('text', data.text);
+      formData.append('email', data.email);
+
+      console.log(formData)
+      axios
+          // .post('https://localhost:7276/Appeals/', formData
+          .post('http://api.malkollm.ru/Appeals/', formData
+          ).then(() => {
+        location.reload()
+      })
+          .catch((error) => {
+            console.log(error)
+            console.log('FAILURE!!')
+          })
     }
+
+    return {data, handleSubmit}
   }
 };
 </script>
