@@ -20,20 +20,12 @@
               <div class="row" style="display: flex; flex-flow: row wrap; gap: 2px; justify-content: space-between;">
                 <div class="col p-2" v-for="image in images" :key="image.id"
                      style="border:1px solid #8c939d; border-radius: 10px; flex: 0 0 22%; margin-bottom: 10px;">
-<!--                    <div style="height: 4rem;">{{ image.title }}</div>-->
                     <div><img :src="image.downloadUrl" class="card-img-top mt-2" alt="..."></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-
-<!--        <div class="box-title box-mb">{{ title }}</div>-->
-<!--        <div class="box-title box-mb">{{ content }}</div>-->
-<!--        <div class="box-title box-mb">{{ datePublished }}</div>-->
-<!--        <div><img :src="imageUrl" class="card-img-top mt-2" alt="..."></div>-->
       </div>
     </div>
   </div>
@@ -60,7 +52,8 @@ export default {
   mounted() {
     console.log()
     axios
-        .get('https://localhost:7276/Events/'+this.id)
+        .get('http://api.malkollm.ru/Events/'+this.id)
+        // .get('https://localhost:7276/Events/'+this.id)
         .then((response) => {
           console.log(response.data)
           this.title = response.data.title
@@ -79,9 +72,6 @@ export default {
         return moment(String(value)).format('DD-MM-YYYY hh:mm')
       }
     },
-    // getId(){
-    //   return this.$router.params.id
-    // }
   }
 }
 </script>
