@@ -17,6 +17,7 @@ import DocumentsComponent from "@/components/submenu/DocumentsComponent";
 import ContactsComponent from "@/components/submenu/ContactsComponent";
 import AddDocumentsSectionComponent from "@/components/admin/AddDocumentsSectionComponent";
 import EventDescriptionComponent from "@/components/EventDescriptionComponent";
+import AddUserSectionComponent from "@/components/admin/AddUserSectionComponent";
 
 export default createRouter({
     history: createWebHashHistory(),
@@ -39,5 +40,6 @@ export default createRouter({
         { path: '/contacts', component:  ContactsComponent},
         { path: '/addDocuments', component:  AddDocumentsSectionComponent},
         { path: '/eventDescription', component:  EventDescriptionComponent},
+        { path: '/addUser', component:  AddUserSectionComponent},
     ]
 })

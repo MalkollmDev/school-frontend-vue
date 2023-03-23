@@ -12,6 +12,9 @@
         <a class="nav-link pointer" @click="toAddDocuments">Добавить документы в разделы</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link pointer" @click="toAddUser">Добавить пользователя</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link pointer disabled">Disabled</a>
       </li>
     </ul>
@@ -32,6 +35,9 @@ export default {
     },
     toAddDocuments() {
       this.$router.push('addDocuments');
+    },
+    toAddUser() {
+      this.$router.push('addUser');
     },
   },
 }
