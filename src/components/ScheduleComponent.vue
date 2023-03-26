@@ -110,7 +110,8 @@ export default {
     },
 
     getFormatDate(date) {
-      return new Date(date).toISOString().split('T', 1)[0]
+      console.log(date)
+      return date.toString().split('T', 1)[0]
     },
 
     handleSubmit() {
