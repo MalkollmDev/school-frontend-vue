@@ -22,6 +22,11 @@
                   </option>
                 </select>
               </div>
+              <div>
+                <p>
+                  {{ result }}
+                </p>
+              </div>
               <button type="submit" class="btn btn-primary">Сохранить</button>
             </form>
           </div>
@@ -47,6 +52,8 @@ export default {
     return {
       groups: [],
       roles: [],
+      baseWord: 'school',
+      result: [],
     }
   },
   created() {
@@ -87,7 +94,19 @@ export default {
     }
 
     return {data, handleSubmit}
-  }
+  },
+  mounted() {
+    const randomVariants = [...Array(80)].map(() =>
+        this.baseWord
+            .split('')
+            .sort(() => 0.5 - Math.random())
+            .join('')
+    )
+    const variantsWithoutInitialWord = randomVariants.filter(
+        (word) => word !== this.baseWord // removes 'orange' if present
+    )
+    this.result = [...new Set(variantsWithoutInitialWord)] // removing duplicates
+  },
 }
 </script>
 <style scoped>

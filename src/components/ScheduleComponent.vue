@@ -4,6 +4,11 @@
     <div class="row mb-3">
       <div class="col-2"></div>
       <div class="card mb-3 col-8">
+        <div class="">
+          <span class="me-3" v-for="date in uniqueDates" :key="date.id">
+            {{ date }}
+          </span>
+        </div>
         <table class="table">
           <thead>
           <tr>
@@ -15,9 +20,9 @@
           </thead>
 
           <tbody v-for="lesson in lessons" :key="lesson.id">
-          <tr colspan="2">
-            <td>
-              <strong>{{lesson.numberGroup}} класс</strong>
+          <tr colspan="2" v-for="item in lesson" :key="item.id">
+            <td v-for="value in item" :key="value.id">
+              <strong>{{ value.numberGroup }} класс</strong>
             </td>
           </tr>
           <tr colspan="2" v-for="value in lesson.lessonItems" :key="value.id">
@@ -45,12 +50,37 @@ export default {
   name: 'ScheduleComponent',
   data() {
     return {
+      dates: [],
+      uniqueDates: [],
       lessons: [],
+      currentDate: "",
     }
   },
   mounted() {
     axios
-        .get('http://api.malkollm.ru/Lessons/GetSchedule')
+        .get('https://localhost:7276/ScheduleDates')
+        .then((response) => {
+          console.log(response.data)
+          for (let d of response.data) {
+            const dateFromDb = new Date(d.date).toISOString().split('T', 1)[0]
+            const dateCurrent = new Date().toISOString().split('T', 1)[0]
+            console.log("db " + dateFromDb)
+            console.log("cur " + dateCurrent)
+            console.log(dateFromDb >= dateCurrent)
+
+            if (dateFromDb >= dateCurrent) {
+              this.dates.push(dateFromDb)
+              this.dates.sort()
+            }
+          }
+          this.uniqueDates = this.dates.filter((item, i, ar) => ar.indexOf(item) === i)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+
+    axios
+        .get('http://api.malkollm.ru/ScheduleDates/GetScheduleByDate')
         .then((response) => {
           console.log(response.data)
           this.lessons = response.data
