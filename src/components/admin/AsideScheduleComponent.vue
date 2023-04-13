@@ -14,14 +14,17 @@
       <tbody v-for="lesson in lessons" :key="lesson.id">
       <tr colspan="2">
         <td>
-          <strong>{{lesson.numberGroup}} класс</strong>
+          <strong>{{ lesson.numberGroup }} класс</strong>
         </td>
       </tr>
-      <tr colspan="2" v-for="value in lesson.lessonItems" :key="value.id">
-        <td>{{ `${value.lessonStart} - ${value.lessonEnd}` }}</td>
-        <td>{{ value.lessonName }}</td>
-        <td>{{ `${value.lastName} ${value.firstName} ${value.middleName}` }}</td>
-        <td>{{ value.email }}</td>
+      <tr colspan="2" v-for="(item, index) in lesson.lessonItems" v-bind:key="index">
+        <td v-text="`${item.lessonStart} - ${item.lessonEnd}`"></td>
+        <td v-text="item.lessonName"></td>
+        <td v-text="`${item.lastName} ${item.firstName} ${item.middleName}`"></td>
+        <td v-text="item.email"></td>
+        <td>
+          <button class="btn btn-danger" @click="deleteRow(item.id)">Delete</button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -50,5 +53,17 @@ export default {
           console.log(error)
         })
   },
+  methods: {
+    deleteRow(id) {
+      axios.delete('http://api.malkollm.ru/LessonGroups/'+id)
+          .then((response) => {
+            console.log(response.data)
+            location.reload()
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+    }
+  }
 }
 </script>

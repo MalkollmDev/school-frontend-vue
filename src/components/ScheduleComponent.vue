@@ -96,11 +96,13 @@ export default {
     getCurrentDate() {
       const date = new Date();
 
+      date.toLocaleDateString('ru-RU')
+
       let day = date.getDate();
       let month = date.getMonth() + 1;
       let year = date.getFullYear();
 
-      return `${year}-0${month}-${day}T00:00:00`;
+      return `${year}-0${month}-0${day}T00:00:00`;
     },
 
     getDayOfWeek(date) {
