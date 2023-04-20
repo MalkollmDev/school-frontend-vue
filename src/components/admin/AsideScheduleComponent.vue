@@ -24,10 +24,15 @@
         <td v-text="item.email"></td>
         <td>
           <button class="btn btn-danger" @click="deleteRow(item.id)">Delete</button>
+          <button class="btn btn-danger" @click="deleteRow(item.id)">Delete</button>
         </td>
       </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="modal-dialog modal-dialog-centered">
+    ...
   </div>
 </template>
 <script>

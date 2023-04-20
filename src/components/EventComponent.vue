@@ -2,18 +2,18 @@
   <div class="container text-center body-font box-mb">
     <div class="row">
       <div class="col-8">
-        <div class="container" style="max-width: 850px">
-          <div class="box-title box-mb">Новости</div>
-          <div class="row" style="display: flex; flex-flow: row wrap; gap: 2px; justify-content: space-between;">
-            <div class="col p-2" v-for="event in events" :key="event.id"
-                 style="border:1px solid #8c939d; border-radius: 10px; flex: 0 0 22%; margin-bottom: 10px;">
-              <a class="pointer" @click="toDescription(event.id)">
-                <div style="height: 4rem;">{{ event.title }}</div>
-                <div><img :src="event.files[0].downloadUrl" class="card-img-top mt-2" alt="..."></div>
-              </a>
-            </div>
-          </div>
-        </div>
+<!--        <div class="container" style="max-width: 850px">-->
+<!--          <div class="box-title box-mb">Новости</div>-->
+<!--          <div class="row" style="display: flex; flex-flow: row wrap; gap: 2px; justify-content: space-between;">-->
+<!--            <div class="col p-2" v-for="event in events" :key="event.id"-->
+<!--                 style="border:1px solid #8c939d; border-radius: 10px; flex: 0 0 22%; margin-bottom: 10px;">-->
+<!--              <a class="pointer" @click="toDescription(event.id)">-->
+<!--                <div style="height: 4rem;">{{ event.title }}</div>-->
+<!--                <div><img :src="event.files[0].downloadUrl" class="card-img-top mt-2" alt="..."></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
         <div class="box-title box-mb box-mt">Услуги</div>
         <div class="container">
           <div class="accordion" id="accordionExample">
