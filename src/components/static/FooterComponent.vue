@@ -13,6 +13,7 @@
       <div class="col-5">
         <p></p>
         <p class="text-center">Размещение сайта - <a href="http://malkollm.ru/">malkollm.ru</a></p>
+        <a href="https://webmaster.yandex.ru/siteinfo/?site=school-abv.ru"><img width="88" height="31" alt="" border="0" src="https://yandex.ru/cycounter?school-abv.ru&theme=light&lang=ru"/></a>
       </div>
     </div>
   </div>
