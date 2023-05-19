@@ -2,80 +2,80 @@
   <header-component/>
   <div class="container">
     <!--    Описание директора-->
-    <div class="row mb-3">
-      <div class="col-2"></div>
-      <div class="card mb-3 col-8 p-3" style="max-width: max-content;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img :src="require('/src/assets/director.png')" class="img-fluid rounded-start" alt="awdaw">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h4 class="card-title">Давайте знакомиться!</h4>
-              <p class="card-text">Меня зовут <strong>Юлия Толокнова</strong>, я руководитель школы семейного
-                образования
-                <strong>"Академия Больших Возможностей"</strong>.</p>
-              <p class="card-text">По образованию я - педагог начальных классов.
-                Свою практическую деятельность начала с педагога в школе.
-                Когда повзрослели дети и пошли в школу, у нас начался новый этап в жизни, когда мы осознали,
-                что школа отличается от той, которую мы представляли.</p>
-              <p>Так пришло понимание, что надо создать среду где детям будет комфортно, где детей будут слышать
-                и понимать,
-                где каждый ребенок будет успешным не зависимо от оценки.
-                Я сам мама троих детей и знаю, с чем сталкиваются современные родители:</p>
+<!--    <div class="row mb-3">-->
+<!--      <div class="col-2"></div>-->
+<!--      <div class="card mb-3 col-8 p-3" style="max-width: max-content;">-->
+<!--        <div class="row g-0">-->
+<!--          <div class="col-md-4">-->
+<!--            <img :src="require('/src/assets/director.png')" class="img-fluid rounded-start" alt="awdaw">-->
+<!--          </div>-->
+<!--          <div class="col-md-8">-->
+<!--            <div class="card-body">-->
+<!--              <h4 class="card-title">Давайте знакомиться!</h4>-->
+<!--              <p class="card-text">Меня зовут <strong>Юлия Толокнова</strong>, я руководитель школы семейного-->
+<!--                образования-->
+<!--                <strong>"Академия Больших Возможностей"</strong>.</p>-->
+<!--              <p class="card-text">По образованию я - педагог начальных классов.-->
+<!--                Свою практическую деятельность начала с педагога в школе.-->
+<!--                Когда повзрослели дети и пошли в школу, у нас начался новый этап в жизни, когда мы осознали,-->
+<!--                что школа отличается от той, которую мы представляли.</p>-->
+<!--              <p>Так пришло понимание, что надо создать среду где детям будет комфортно, где детей будут слышать-->
+<!--                и понимать,-->
+<!--                где каждый ребенок будет успешным не зависимо от оценки.-->
+<!--                Я сам мама троих детей и знаю, с чем сталкиваются современные родители:</p>-->
 
-              <div class="container">
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-danger">❌ Переполненные классы в школах;</li>
-                  <li class="list-group-item list-group-item-danger">❌ Непонятные программы обучения;</li>
-                  <li class="list-group-item list-group-item-danger">❌ Враждебность и буллинг в школе;</li>
-                  <li class="list-group-item list-group-item-danger">❌ Нет контакта ученика с учителем;</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-2"></div>
-    </div>
+<!--              <div class="container">-->
+<!--                <ul class="list-group">-->
+<!--                  <li class="list-group-item list-group-item-danger">❌ Переполненные классы в школах;</li>-->
+<!--                  <li class="list-group-item list-group-item-danger">❌ Непонятные программы обучения;</li>-->
+<!--                  <li class="list-group-item list-group-item-danger">❌ Враждебность и буллинг в школе;</li>-->
+<!--                  <li class="list-group-item list-group-item-danger">❌ Нет контакта ученика с учителем;</li>-->
+<!--                </ul>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-2"></div>-->
+<!--    </div>-->
     <!--    Дети перегружены-->
-    <div class="row mb-5">
-      <div class="col-2"></div>
-      <div class="card mb-3 col-8" style="max-width: max-content;">
-        <div class="row g-0">
-          <div class="card-body">
-            <h4 class="card-title">Дети сегодня бессмысленно перегружены</h4>
-            <p class="card-text">При этом ладно бы эта нагрузка помогала ребенку без проблем написать ЕГЭ на
-              высокий балл, определится с выбором профессии, развивать навыки и готовиться к жизни.
-              Но этого нет и родители самостоятельно нанимают репетиторов, записывают в кружки, "развивашки". В
-              итоге:</p>
-          </div>
-          <div class="container text-center mb-5">
-            <div class="row">
-              <div class="col">
-                <img :src="require('/src/assets/about/1.png')" class="img-fluid rounded-start" alt="awdaw">
-                <p><strong>С утра ребенок в школе</strong></p>
-              </div>
-              <div class="col">
-                <img :src="require('/src/assets/about/2.png')" class="img-fluid rounded-start" alt="awdaw">
-                <p><strong>Днем ходит на ДПО</strong></p>
-              </div>
-              <div class="col">
-                <img :src="require('/src/assets/about/3.png')" class="img-fluid rounded-start" alt="awdaw">
-                <p><strong>Вечером делает с вами ДЗ</strong></p>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">Но школа может быть другой, а аттестат точно такой же, государственный!</h4>
-            <p class="card-text">Меньше лишних предметов, больше пользы, иная атмосфера и успешно сданные ЕГЭ.
-              Дети смогут выбирать учителей, предметы, навыки, глубину погружения. Цели в своем обучении. И даже еду,
-              в конце концов!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-2"></div>
-    </div>
+<!--    <div class="row mb-5">-->
+<!--      <div class="col-2"></div>-->
+<!--      <div class="card mb-3 col-8" style="max-width: max-content;">-->
+<!--        <div class="row g-0">-->
+<!--          <div class="card-body">-->
+<!--            <h4 class="card-title">Дети сегодня бессмысленно перегружены</h4>-->
+<!--            <p class="card-text">При этом ладно бы эта нагрузка помогала ребенку без проблем написать ЕГЭ на-->
+<!--              высокий балл, определится с выбором профессии, развивать навыки и готовиться к жизни.-->
+<!--              Но этого нет и родители самостоятельно нанимают репетиторов, записывают в кружки, "развивашки". В-->
+<!--              итоге:</p>-->
+<!--          </div>-->
+<!--          <div class="container text-center mb-5">-->
+<!--            <div class="row">-->
+<!--              <div class="col">-->
+<!--                <img :src="require('/src/assets/about/1.png')" class="img-fluid rounded-start" alt="awdaw">-->
+<!--                <p><strong>С утра ребенок в школе</strong></p>-->
+<!--              </div>-->
+<!--              <div class="col">-->
+<!--                <img :src="require('/src/assets/about/2.png')" class="img-fluid rounded-start" alt="awdaw">-->
+<!--                <p><strong>Днем ходит на ДПО</strong></p>-->
+<!--              </div>-->
+<!--              <div class="col">-->
+<!--                <img :src="require('/src/assets/about/3.png')" class="img-fluid rounded-start" alt="awdaw">-->
+<!--                <p><strong>Вечером делает с вами ДЗ</strong></p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="card-body">-->
+<!--            <h4 class="card-title">Но школа может быть другой, а аттестат точно такой же, государственный!</h4>-->
+<!--            <p class="card-text">Меньше лишних предметов, больше пользы, иная атмосфера и успешно сданные ЕГЭ.-->
+<!--              Дети смогут выбирать учителей, предметы, навыки, глубину погружения. Цели в своем обучении. И даже еду,-->
+<!--              в конце концов!</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-2"></div>-->
+<!--    </div>-->
     <!--    Проблемы детей-->
     <div class="row mb-3">
       <div class="col-2"></div>

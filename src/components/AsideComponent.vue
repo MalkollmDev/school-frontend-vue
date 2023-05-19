@@ -5,8 +5,8 @@
         Объявления
       </div>
       <ul class="list-group list-group-flush" style="text-align: left;">
-        <li class="list-group-item">19.03.2023 <a href="/">Открытая встреча</a></li>
-        <li class="list-group-item">14.03.2023 <a href="/">Экскурсия в пекарню</a></li>
+        <li class="list-group-item">19.05.2023 <a href="/">Родительское собрание</a></li>
+        <li class="list-group-item">14.04.2023 <a href="/">Экскурсия в пекарню</a></li>
         <li class="list-group-item">10.03.2023 <a href="/">Анонс мероприятия "Квартирник"</a></li>
       </ul>
     </div>
