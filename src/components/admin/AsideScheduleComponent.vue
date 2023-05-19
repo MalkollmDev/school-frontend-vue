@@ -22,10 +22,6 @@
         <td v-text="item.lessonName"></td>
         <td v-text="`${item.lastName} ${item.firstName} ${item.middleName}`"></td>
         <td v-text="item.email"></td>
-        <td>
-          <button class="btn btn-danger" @click="deleteRow(item.id)">Delete</button>
-          <button class="btn btn-danger" @click="deleteRow(item.id)">Delete</button>
-        </td>
       </tr>
       </tbody>
     </table>
@@ -58,17 +54,5 @@ export default {
           console.log(error)
         })
   },
-  methods: {
-    deleteRow(id) {
-      axios.delete('http://api.malkollm.ru/LessonGroups/'+id)
-          .then((response) => {
-            console.log(response.data)
-            location.reload()
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-    }
-  }
 }
 </script>
