@@ -1,5 +1,4 @@
 <template>
-  <admin-tab-component/>
   <div class="container w-25 p-3">
     <form @submit.prevent="handleSubmit">
       <div class="form-floating mb-3">
@@ -12,7 +11,8 @@
         <label for="floatingTextarea2">Описание новости</label>
       </div>
       <div class="mb-3">
-        <input class="form-control" accept="image/*" id="files" ref="files" type="file" @change="handleFileInput($event.target.files)"
+        <input class="form-control" accept="image/*" id="files" ref="files" type="file"
+               @change="handleFileInput($event.target.files)"
                multiple>
       </div>
       <div class="form-check mb-5">
@@ -22,7 +22,7 @@
         </label>
       </div>
       <button type="submit" class="btn btn-primary">Сохранить</button>
-<!--      <p>{{ JSON.stringify(data, null, 2) }}</p>-->
+      <!--      <p>{{ JSON.stringify(data, null, 2) }}</p>-->
     </form>
   </div>
 </template>
@@ -30,11 +30,10 @@
 <script>
 // import {reactive} from "vue";
 import axios from "axios";
-import AdminTabComponent from "@/components/admin/AdminTabComponent";
 
 export default {
-  components: {AdminTabComponent},
-  name: 'AdminComponent',
+  components: {},
+  name: 'AddEventSectionComponent',
   data() {
     return {
       title: "",
@@ -56,7 +55,7 @@ export default {
 
     handleSubmit() {
       axios
-          .post('http://api.malkollm.ru/Events/', this.files,
+          .post('https://localhost:7276/Events/', this.files,
               {
                 headers: {
                   'Content-Type': 'multipart/form-data'
@@ -75,29 +74,6 @@ export default {
 }
 </script>
 <style scoped>
-.upload {
-  display: inline-block;
-  text-align: center;
-  cursor: pointer;
-  outline: 0;
-}
-
-.upload-picture-card {
-  background-color: #fbfdff;
-  border: 1px dashed #c0ccda;
-  border-radius: 5px;
-  box-sizing: border-box;
-  width: 162px;
-  height: 162px;
-  cursor: pointer;
-  vertical-align: top;
-}
-
-.upload-picture-card:hover {
-  border-color: #409eff;
-  color: #409eff;
-}
-
 .upload-picture-card i {
   margin-top: 66px;
   font-size: 30px;

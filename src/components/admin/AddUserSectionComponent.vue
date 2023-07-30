@@ -1,5 +1,4 @@
 <template>
-  <admin-tab-component/>
   <div class="container text-center body-font box-mb">
     <div class="row">
       <div class="col-7">
@@ -42,11 +41,10 @@
 <script>
 import {reactive} from "vue";
 import axios from "axios";
-import AdminTabComponent from "@/components/admin/AdminTabComponent";
 import AsideUserComponent from "@/components/admin/AsideUserComponent";
 
 export default {
-  components: {AsideUserComponent, AdminTabComponent},
+  components: {AsideUserComponent},
   name: 'AddUserSectionComponent',
   data() {
     return {
@@ -58,7 +56,7 @@ export default {
   },
   created() {
     axios
-        .get('http://api.malkollm.ru/Groups/')
+        .get('https://localhost:7276/Groups/')
         .then((response) => {
           this.groups = response.data
         })
@@ -66,7 +64,7 @@ export default {
           console.log(error)
         })
     axios
-        .get('http://api.malkollm.ru/Roles/')
+        .get('https://localhost:7276/Roles/')
         .then((response) => {
           this.roles = response.data
         })
@@ -84,7 +82,7 @@ export default {
       formData.append('groupId', data.groupId);
 
       axios
-          .post('http://api.malkollm.ru/Lessons/AddSchedule/', formData)
+          .post('https://localhost:7276/Lessons/AddSchedule/', formData)
           .then(() => {
             location.reload()
           })
