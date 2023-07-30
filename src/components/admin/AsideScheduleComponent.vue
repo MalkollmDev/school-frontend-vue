@@ -45,7 +45,7 @@ export default {
   },
   mounted() {
     axios
-        .get('http://api.malkollm.ru/Lessons/GetSchedule')
+        .get('https://localhost:7276/Lessons/GetSchedule')
         .then((response) => {
           console.log(response.data)
           this.lessons = response.data

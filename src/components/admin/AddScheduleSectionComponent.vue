@@ -1,5 +1,4 @@
 <template>
-  <admin-tab-component/>
   <div class="container text-center body-font box-mb">
     <div class="row">
       <div class="col-7">
@@ -53,11 +52,10 @@
 <script>
 import {reactive} from "vue";
 import axios from "axios";
-import AdminTabComponent from "@/components/admin/AdminTabComponent";
 import AsideScheduleComponent from "@/components/admin/AsideScheduleComponent";
 
 export default {
-  components: {AsideScheduleComponent, AdminTabComponent},
+  components: {AsideScheduleComponent},
   name: 'AddScheduleSectionComponent',
   data() {
     return {
@@ -69,7 +67,7 @@ export default {
   },
   created() {
     axios
-        .get('http://api.malkollm.ru/Groups/')
+        .get('https://localhost:7276/Groups/')
         .then((response) => {
           this.groups = response.data
         })
@@ -77,7 +75,7 @@ export default {
           console.log(error)
         })
     axios
-        .get('http://api.malkollm.ru/Lessons/')
+        .get('https://localhost:7276/Lessons/')
         .then((response) => {
           this.lessons = response.data
         })
@@ -85,7 +83,7 @@ export default {
           console.log(error)
         })
     axios
-        .get('http://api.malkollm.ru/Teachers/')
+        .get('https://localhost:7276/Teachers/')
         .then((response) => {
           this.teachers = response.data
         })
@@ -93,7 +91,7 @@ export default {
           console.log(error)
         })
     axios
-        .get('http://api.malkollm.ru/LessonTimes/')
+        .get('https://localhost:7276/LessonTimes/')
         .then((response) => {
           this.lessonTimes = response.data
         })
